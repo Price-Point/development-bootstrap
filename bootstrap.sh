@@ -88,7 +88,6 @@ $CREATE_DOCKER_GROUP
 ADD_USER_TO_DOCKER="sudo usermod -aG docker $USER"
 echo $ADD_USER_TO_DOCKER
 $ADD_USER_TO_DOCKER
-# wget -qO- https://api.github.com/repos/Price-Point/DevelopmentBoostrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw' | sudo python3 -
-python3 bootstrap.py
+wget -qO- https://api.github.com/repos/Price-Point/DevelopmentBoostrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw' | sudo python3 -
 
 
