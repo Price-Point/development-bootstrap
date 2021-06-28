@@ -31,6 +31,19 @@ else:
       # to set them up
       print('It is recommended that you have ssh keys')
 
+# make sure ssh is set up to always add keys to the agent
+found = False
+ssh_config_filename=os.path.join(str(Path.home()),'.ssh', 'config')
+ssh_config_content_line='AddKeysToAgent yes\n'
+if os.path.exists(ssh_config_filename):
+      with open(ssh_config_filename, 'r') as sshconfig:
+            for line in sshconfig:
+                  if line == ssh_config_content_line:
+                        found = True
+if found == False:
+      with open(ssh_config_filename, 'a') as bashrc:
+            bashrc.write(ssh_config_content_line)
+
 # create .ppbashrc and add it to .bashrc
 ppbashrc_directory=os.path.join(str(Path.home()),'.ppbashrc')
 Path(ppbashrc_directory).mkdir(parents=True, exist_ok=True)
