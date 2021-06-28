@@ -5,15 +5,14 @@ if [ $EUID = 0 ]
 fi
 
 echo "add git and ansible repositories"
-set ADD_REPOSITORIES="sudo add-apt-repository ppa:git-core/ppa ppa:ansible/ansible"
+ADD_REPOSITORIES="sudo add-apt-repository ppa:git-core/ppa ppa:ansible/ansible"
 echo $ADD_REPOSITORIES
 $ADD_REPOSITORIES
 echo "install common dependencies"
-set UPDATE_APT="sudo apt update"
+UPDATE_APT="sudo apt update"
 echo $UPDATE_APT
 $UPDATE_APT
-set INSTALL_DEPS="
-sudo apt-get install -y build-essential \
+INSTALL_DEPS=" sudo apt-get install -y build-essential \
 curl \
 software-properties-common \
 python3 \
