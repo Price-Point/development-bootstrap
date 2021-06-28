@@ -1,6 +1,24 @@
 <html>
 <header><title>PricePoint Developer Bootstrap</title></header>
 <body>
-wget -qO- https://api.github.com/repos/Price-Point/DevelopmentBoostrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw' | python - 
+<h1>
+PricePoint dev machine setup
+</h1>
+<p>
+Install latest version of <a href="https://www.virtualbox.org/wiki/Downloads" _blank> VirtualBox</a>
+</p>
+<p>
+Download latest stable version of <a href="https://lubuntu.me/downloads/" _blank> Lubuntu</a> and create new VM with at least 200gb disc, 4 cores, 16gb ram, and 64mb video memory. Be sure to also update clibboard and drag and drop settings to bicirectional.
+</p>
+<p>
+Install guest extensions as described <a href="https://www.techrepublic.com/article/how-to-install-virtualbox-guest-additions-on-a-gui-less-ubuntu-server-host/" _blank>here</a>
+</p>
+<p>
+Run the following in a terminal window and follow the remaining prompts
+</p>
+<p><code>
+wget -qO - https://api.github.com/repos/Price-Point/DevelopmentBoostrap/contents/bootstrap.sh --header 'Accept: application/vnd.github.v3.raw' | bash 
+</code>
+</p>
 </body>
 </html>
