@@ -18,8 +18,8 @@ ssh_directory=os.path.join(str(Path.home()),'.ssh');
 Path(ssh_directory).mkdir(parents=True, exist_ok=True)
 update_ssh = input('Do you want to update existing ssh keys (y | n)? ')
 if update_ssh.lower() == 'y':
-      public_key = multi_line_input('public ssh key')
-      private_key = input('private ssh key ')
+      public_key = multi_line_input('public ssh key ')
+      private_key = multi_line_input('private ssh key')
       with open(os.path.join(ssh_directory, 'id_rsa.pub'), 'wb') as id_rsa_pub:
             id_rsa_pub.write(public_key.encode());
       with open(os.path.join(ssh_directory, 'id_rsa'), 'wb') as id_rsa:
