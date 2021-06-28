@@ -93,14 +93,14 @@ $CREATE_DOCKER_GROUP
 ADD_USER_TO_DOCKER="sudo usermod -aG docker $USER"
 echo $ADD_USER_TO_DOCKER
 $ADD_USER_TO_DOCKER
-GET_INSTALL_SCRIPT=" wget -O bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'"
+GET_INSTALL_SCRIPT="wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'"
 echo $GET_INSTALL_SCRIPT
-$GET_INSTALL_SCRIPT
+wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'
 RUN_INSTALL_SCRIPT="python3 bootstrap.py"
 echo $RUN_INSTALL_SCRIPT
 $RUN_INSTALL_SCRIPT
 RM_INSTALL_SCRIPT="rm bootstrap.py"
 echo $RM_INSTALL_SCRIPT
-$RM_INSTALL_SCRIPT
+# $RM_INSTALL_SCRIPT
 
 
