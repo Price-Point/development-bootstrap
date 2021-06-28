@@ -51,6 +51,12 @@ $INSTALL_CHROME
 REMOVE_CHROME_INSTALLER="rm ./google-chrome-stable_current_amd64.deb"
 echo $REMOVE_CHROME_INSTALLER
 $REMOVE_CHROME_INSTALLER
+SET_CHROME_DEFAULT_BROWSER="xdg-mime default google-chrome.desktop text/html && \
+xdg-mime default google-chrome.desktop x-scheme-handler/http && \
+xdg-mime default google-chrome.desktop x-scheme-handler/https && \
+xdg-mime default google-chrome.desktop x-scheme-handler/about"
+echo $SET_CHROME_DEFAULT_BROWSER
+$SET_CHROME_DEFAULT_BROWSER
 echo "install postman"
 INSTALL_POSTMAN="sudo snap install postman"
 echo $INSTALL_POSTMAN
@@ -88,6 +94,14 @@ $CREATE_DOCKER_GROUP
 ADD_USER_TO_DOCKER="sudo usermod -aG docker $USER"
 echo $ADD_USER_TO_DOCKER
 $ADD_USER_TO_DOCKER
-wget -qO- https://api.github.com/repos/Price-Point/DevelopmentBoostrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw' | sudo python3 -
+GET_INSTALL_SCRIPT="curl -fsSL https://api.github.com/repos/Price-Point/DevelopmentBoostrap/contents/bootstrap.py -o bootstrap.py"
+echo $GET_INSTALL_SCRIPT
+$GET_INSTALL_SCRIPT
+RUN_INSTALL_SCRIPT="python3 bootstrap.py < $1"
+echo $RUN_INSTALL_SCRIPT
+$RUN_INSTALL_SCRIPT
+RM_INSTALL_SCRIPT="rm bootstrap.py"
+echo $RM_INSTALL_SCRIPT
+$RM_INSTALL_SCRIPT
 
 
