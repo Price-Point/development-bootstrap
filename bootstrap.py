@@ -48,10 +48,13 @@ if found == False:
 ppbashrc_directory=os.path.join(str(Path.home()),'.ppbashrc')
 Path(ppbashrc_directory).mkdir(parents=True, exist_ok=True)
 aws_creds_filename=os.path.join(ppbashrc_directory, '.aws_creds')
+npm_creds_filename=os.path.join(ppbashrc_directory, '.npm_creds')
 ppbashrc_contents="""
 source {0}
+source {1}
 """.format(
-      aws_creds_filename
+      aws_creds_filename,
+      npm_creds_filename
 )
 ppbashrc_filename = os.path.join(ppbashrc_directory, '.bashrc')
 with open(ppbashrc_filename, 'w') as ppbashrc:
@@ -78,5 +81,14 @@ export AWS_SECRET_ACCESS_KEY={1}
 export AWS_DEFAULT_REGION=us-east-1
 export AWS_DEFAULT_OUTPUT=json
 """.format(aws_access_key,aws_secret)
-      with open(aws_creds_filename, 'w') as bashrc:
-            bashrc.write(aws_creds_contents)
+      with open(aws_creds_filename, 'w') as aws_creds:
+            aws_creds.write(aws_creds_contents)
+
+# get npm token
+update_npm_token  = input('Do you want to update your npm creds (y | n)? ')
+if update_npm_token.lower() == 'y':
+      npm_token=input('npm token ')
+      npm_creds_contents="""export NPM_TOKEN={0}
+""".format(npm_token)
+      with open(npm_creds_filename, 'w') as npm_creds:
+            npm_creds.write(npm_creds_contents)

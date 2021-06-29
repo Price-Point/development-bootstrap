@@ -93,6 +93,15 @@ $CREATE_DOCKER_GROUP
 ADD_USER_TO_DOCKER="sudo usermod -aG docker $USER"
 echo $ADD_USER_TO_DOCKER
 $ADD_USER_TO_DOCKER
+INSTALL_KUBECTL="snap install kubectl --classic"
+echo $INSTALL_KUBECTL
+$INSTALL_KUBECTL
+UPDATE_KUBECTL="snap refresh kubectl --classic"
+echo $UPDATE_KUBECTL
+$UPDATE_KUBECTL
+INSTALL_HELM="curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash"
+echo $INSTALL_HELM
+$INSTALL_HELM
 GET_INSTALL_SCRIPT="wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'"
 echo $GET_INSTALL_SCRIPT
 wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'
@@ -101,6 +110,6 @@ echo $RUN_INSTALL_SCRIPT
 $RUN_INSTALL_SCRIPT
 RM_INSTALL_SCRIPT="rm bootstrap.py"
 echo $RM_INSTALL_SCRIPT
-# $RM_INSTALL_SCRIPT
+$RM_INSTALL_SCRIPT
 
 
