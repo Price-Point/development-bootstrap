@@ -8,14 +8,35 @@ PricePoint dev machine setup
 Install latest version of <a href="https://www.virtualbox.org/wiki/Downloads" _blank> VirtualBox</a>
 </p>
 <p>
-Download latest stable version of <a href="https://lubuntu.me/downloads/" _blank> Lubuntu</a> and create new VM with at least 200gb disc, 4 cores, 16gb ram, and 64mb video memory. Be sure to also update clibboard and drag and drop settings to bicirectional.
+Download latest stable version of <a href="https://lubuntu.me/downloads/" _blank> Lubuntu</a>
 </p>
+<h4>
+    Create new VM with at least 200gb disc, 4 cores, 16gb ram, and 64mb video memory. Be sure to also update clipboard and drag and drop settings to bidirectional.
+</h4>
 <p>
-Install guest extensions as described <a href="https://www.techrepublic.com/article/how-to-install-virtualbox-guest-additions-on-a-gui-less-ubuntu-server-host/" _blank>here</a>
+    Detailed Procedure:
 </p>
-<p>
+<ol>
+    <li>Create a new VM. Assign 8GB Memory and at least 200GB Disc.</li>
+    <li>Go to Settings. Under General > Advanced, Change the <i>Clipboard</i> and <i>Drag and Drop</i> settings to bidirectional</li>
+    <li>Under Storage, select the Empty CD drive. Click the CD Icon next to the drop down and select <i>Choose a disk file</i>. Select the Lubuntu iso</li>
+    <li>Start your VM and run the OS installer on the desktop. Let it complete then shutdown the VM.</li>
+    <li>Go back to where you chose the Lubuntu image, this time select <i>Remove Disk from Virtual Drive</i></li>
+    <li>Increase the VM resources. It should have at least 4 cores, 16GB ram, and 64mb video memory</li>
+</ol>
+
+<h4>Install Guest Additions</h4>
+<ol>
+    <li>Start up your VM. In the menu bar select Devices > Insert Guest Additions CD Image</li>
+    <li>In a terminal, run: <br><code>sudo apt-get install -y dkms build-essential linux-headers-generic linux-headers-$(uname -r)</code></li>
+    <li>Navigate to the CD directory in your terminal. You can use the GUI file browser to help you find it</li>
+    <li>Change to root user with: <br><code>sudo su</code></li>
+    <li>Install Guest Additions with the command: <br><code>./VBoxLinuxAdditions.run</code></li>
+</ol>
+
+<h4>
 Run the following in a terminal window and follow the remaining prompts
-</p>
+</h4>
 <p><code>
 wget -qO bootstrap.sh https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.sh --header 'Accept: application/vnd.github.v3.raw' && bash bootstrap.sh && rm bootstrap.sh
 </code>
