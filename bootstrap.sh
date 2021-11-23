@@ -105,6 +105,9 @@ $INSTALL_HELM
 INSTALL_ARGOCD="sudo curl -sSL -o /tmp/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && sudo cp -r /tmp/argocd /usr/local/bin && sudo chmod +x /usr/local/bin/argocd && sudo rm -rf /tmp/argocd"
 echo $INSTALL_ARGOCD
 $INSTALL_ARGOCD
+INSTALL_SOPS="/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install sops"
+echo $INSTALL_SOPS
+$INSTALL_SOPS
 GET_INSTALL_SCRIPT="wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'"
 echo $GET_INSTALL_SCRIPT
 wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'
