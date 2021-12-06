@@ -105,6 +105,15 @@ $INSTALL_HELM
 INSTALL_ARGOCD="sudo curl -sSL -o /tmp/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && sudo cp -r /tmp/argocd /usr/local/bin && sudo chmod +x /usr/local/bin/argocd && sudo rm -rf /tmp/argocd"
 echo $INSTALL_ARGOCD
 $INSTALL_ARGOCD
+GET_SOPS="wget https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb"
+echo $GET_SOPS
+$GET_SOPS
+INSTALL_SOPS="sudo apt install -y ./sops_3.7.1_amd64.deb"
+echo $INSTALL_SOPS
+$INSTALL_SOPS
+REMOVE_SOPS_INSTALLER="rm ./sops_3.7.1_amd64.deb"
+echo $REMOVE_SOPS_INSTALLER
+$REMOVE_SOPS_INSTALLER
 GET_INSTALL_SCRIPT="wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'"
 echo $GET_INSTALL_SCRIPT
 wget -qO bootstrap.py https://api.github.com/repos/Price-Point/development-bootstrap/contents/bootstrap.py --header 'Accept: application/vnd.github.v3.raw'
