@@ -49,12 +49,15 @@ ppbashrc_directory=os.path.join(str(Path.home()),'.ppbashrc')
 Path(ppbashrc_directory).mkdir(parents=True, exist_ok=True)
 aws_creds_filename=os.path.join(ppbashrc_directory, '.aws_creds')
 npm_creds_filename=os.path.join(ppbashrc_directory, '.npm_creds')
+github_creds_filename=os.path.join(ppbashrc_directory, '.github_creds')
 ppbashrc_contents="""
 source {0}
 source {1}
+source {2}
 """.format(
       aws_creds_filename,
-      npm_creds_filename
+      npm_creds_filename,
+      github_creds_filename
 )
 ppbashrc_filename = os.path.join(ppbashrc_directory, '.bashrc')
 with open(ppbashrc_filename, 'w') as ppbashrc:
@@ -92,3 +95,11 @@ if update_npm_token.lower() == 'y':
 """.format(npm_token)
       with open(npm_creds_filename, 'w') as npm_creds:
             npm_creds.write(npm_creds_contents)
+
+# get Github API key for pricepoint-machine
+update_github_access_token  = input('Do you want to update your github api creds (y | n)? ')
+if update_github_access_token.lower() == 'y':
+      github_access_token=input('github access token ')
+      github_creds_contents=f"export GITHUB_ACCESS_TOKEN={github_access_token}\n"
+      with open(github_creds_filename, 'w') as github_creds:
+            github_creds.write(github_creds_contents)
