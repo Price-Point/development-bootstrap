@@ -93,6 +93,9 @@ $CREATE_DOCKER_GROUP
 ADD_USER_TO_DOCKER="sudo usermod -aG docker $USER"
 echo $ADD_USER_TO_DOCKER
 $ADD_USER_TO_DOCKER
+INSTALL_MINIKUBE="curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb && sudo dpkg -i minikube_latest_amd64.deb && rm minikube_latest_amd64.deb"
+echo $INSTALL_MINIKUBE
+$INSTALL_MINIKUBE
 INSTALL_KUBECTL="snap install kubectl --classic"
 echo $INSTALL_KUBECTL
 $INSTALL_KUBECTL
@@ -111,5 +114,3 @@ $RUN_INSTALL_SCRIPT
 RM_INSTALL_SCRIPT="rm bootstrap.py"
 echo $RM_INSTALL_SCRIPT
 $RM_INSTALL_SCRIPT
-
-
