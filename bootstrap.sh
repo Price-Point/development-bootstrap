@@ -31,12 +31,12 @@ lsb-release
 echo $INSTALL_DEPS
 $INSTALL_DEPS
 INSTALL_PYTHON_DEPS="sudo pip3 install boto3 \
-awscli \
+awscli --break-system-packages \
 "
 echo $INSTALL_PYTHON_DEPS
 $INSTALL_PYTHON_DEPS
 INSTALL_PYTHON_DEPS="sudo pip3 install boto3 \
-awscli \
+awscli --break-system-packages \
 "
 echo $INSTALL_PYTHON_DEPS
 $INSTALL_PYTHON_DEPS
@@ -64,10 +64,10 @@ UPDATE_POSTMAN="sudo snap refresh postman"
 echo $UPDATE_POSTMAN
 $UPDATE_POSTMAN
 echo "install node"
-INSTALL_NODE="sudo snap install node --classic --channel=14"
+INSTALL_NODE="sudo snap install node --classic --channel=16"
 echo $INSTALL_NODE
 $INSTALL_NODE
-UPDATE_NODE="sudo snap refresh node --classic --channel=14"
+UPDATE_NODE="sudo snap refresh node --classic --channel=16"
 echo $UPDATE_NODE
 $UPDATE_NODE
 echo "install vscode"
