@@ -47,6 +47,9 @@ wget -qO bootstrap.sh https://api.github.com/repos/Price-Point/development-boots
 <ol>
     <li>Follow instructions <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux"
         >here</a> for setting up GitHub SSH Keys</li>
+    <li>Setup local mysql root password by running <code>sudo mysql</code> and then update the following command with the right password (ask Phoenix) and run it. <code>
+        ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new_password_here';
+    </code></li>
 </ol>
 </body>
 </html>
