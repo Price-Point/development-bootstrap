@@ -26,6 +26,7 @@ apt-transport-https \
 ca-certificates \
 curl \
 gnupg \
+mysql-server-8.0 \
 lsb-release
 "
 echo $INSTALL_DEPS
